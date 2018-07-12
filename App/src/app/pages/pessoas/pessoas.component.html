@@ -1,0 +1,56 @@
+<div class="course">
+    <h2>Pessoas</h2>
+
+    <mat-form-field>
+        <input matInput placeholder="Search lessons" #input>
+    </mat-form-field>
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="seqNo" matSortDirection="asc"
+        matSortDisableClear>
+        <ng-container cdkColumnDef="#">
+            <mat-header-cell *cdkHeaderCellDef> # </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{ row.id }} </mat-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="nome">
+            <mat-header-cell *cdkHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{ row.nome }} </mat-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="sobrenome">
+            <mat-header-cell *cdkHeaderCellDef> Sobrenome </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{ row.sobrenome }} </mat-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="dataNascimentoFormatada">
+            <mat-header-cell *cdkHeaderCellDef> Data de Nascimento </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{ row.dataNascimentoFormatada }} </mat-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="sexo">
+            <mat-header-cell *cdkHeaderCellDef> Sexo </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{ row.sexo }} </mat-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="actions">
+            <mat-header-cell *cdkHeaderCellDef> </mat-header-cell>
+            <mat-cell *cdkCellDef="let row">
+                <button mat-icon-button color="warn">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <span class="done">
+        <button mat-fab (click)="add()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </span>
+</div>

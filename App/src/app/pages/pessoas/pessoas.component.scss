@@ -1,0 +1,31 @@
+.done {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    color: white;
+  }
+
+  .course {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.description-cell {
+    text-align: left;
+    margin: 10px auto;
+}
+
+.duration-cell {
+    text-align: center;
+}
+
+.duration-cell mat-icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+} 
+.lessons-table {
+    min-height: 360px;
+    margin-top: 10px;
+}
